@@ -48,7 +48,7 @@ function vendor() {
 
 echo "Vendoring binaries" | arrow
 
-vendor "${ROOT_DIR}/build/mdbtools-0.9.2.tar.gz" "$BUILD_DIR/vendor/mdbtools"
+vendor "${ROOT_DIR}/build/mdbtools-0.9.2.tar.gz" "$BUILD_DIR/vendor"
 
 echo "Configuring build environment" | arrow
 
@@ -60,6 +60,9 @@ export PKG_CONFIG_PATH="\$PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
 export CPPPATH="\$CPPPATH:$CPPPATH"
 export CPATH="\$CPATH:$CPATH"
 EOF
+
+cd $BUILD_DIR/vendor/mdbtools
+make install
 
 echo "Building runtime environment" | arrow
 mkdir -p $BUILD_DIR/.profile.d
