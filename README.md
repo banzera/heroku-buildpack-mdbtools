@@ -60,8 +60,8 @@ _This will take you to an interactive bash shell as a root user inside the conta
     $ tar xf mdbtools-0.9.2.tar.gz
     $ cd mdbtools/
     $ autoreconf -i -f
-    $ ./configure --disable-silent-rules --${{ matrix.glib }} --with-unixodbc=/usr
-    $ make
+    $ ./configure --disable-silent-rules --enable-glib --disable-man --prefix=/app/vendor/mdbtools
+    $ make && make install
     ```
 
 _Take a break this will take a few min to install._
@@ -69,8 +69,8 @@ _Take a break this will take a few min to install._
 10. Wrap it up with a bow(compress the binary):
 
     ```bash
-    $ cd /
-    $ tar czf /mdbtools.tar.gz mdbtools/
+    $ cd /app/vendor/mdbtools
+    $ tar czf /mdbtools.tar.gz .
     ```
 
 
